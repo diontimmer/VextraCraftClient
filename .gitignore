@@ -1,11 +1,7 @@
 .gradle
 build/
 
-# Source code
-src/*
 
-#Run files
-runclient
 
 # Ignore Gradle GUI config
 gradle-app.setting
