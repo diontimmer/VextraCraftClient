@@ -14,6 +14,7 @@ import net.minecraft.util.FrameTimer;
 import net.minecraft.util.SharedConstants;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import vextracraft.Client;
 
 @OnlyIn(Dist.CLIENT)
 public class MinecraftGame implements RunningGame {

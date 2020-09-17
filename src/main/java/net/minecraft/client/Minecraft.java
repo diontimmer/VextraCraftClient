@@ -234,6 +234,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import vextracraft.Client;
 
 @OnlyIn(Dist.CLIENT)
 public class Minecraft extends RecursiveEventLoop<Runnable> implements ISnooperInfo, IWindowEventListener {
@@ -391,6 +392,7 @@ public class Minecraft extends RecursiveEventLoop<Runnable> implements ISnooperI
       this.toastGui = new ToastGui(this);
       this.tutorial = new Tutorial(this);
       this.thread = Thread.currentThread();
+      Client.getInstance().init();
       this.gameSettings = new GameSettings(this, this.gameDir);
       this.creativeSettings = new CreativeSettings(this.gameDir, this.dataFixer);
       LOGGER.info("Backend library: {}", (Object)RenderSystem.getBackendDescription());
@@ -830,6 +832,7 @@ public class Minecraft extends RecursiveEventLoop<Runnable> implements ISnooperI
    }
 
    public void shutdownMinecraftApplet() {
+      Client.getInstance().shutdown();
       try {
          LOGGER.info("Stopping!");
 

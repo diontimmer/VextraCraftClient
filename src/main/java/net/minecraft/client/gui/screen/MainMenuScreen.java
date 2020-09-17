@@ -129,9 +129,6 @@ public class MainMenuScreen extends Screen {
    }
 
    private void addSingleplayerMultiplayerButtons(int yIn, int rowHeightIn) {
-      this.func_230480_a_(new Button(this.field_230708_k_ / 2 - 100, yIn, 200, 20, new TranslationTextComponent("menu.singleplayer"), (p_213089_1_) -> {
-         this.field_230706_i_.displayGuiScreen(new WorldSelectionScreen(this));
-      }));
       boolean flag = this.field_230706_i_.func_238216_r_();
       Button.ITooltip button$itooltip = flag ? Button.field_238486_s_ : (p_238659_1_, p_238659_2_, p_238659_3_, p_238659_4_) -> {
          if (!p_238659_1_.field_230693_o_) {
@@ -142,9 +139,6 @@ public class MainMenuScreen extends Screen {
       (this.func_230480_a_(new Button(this.field_230708_k_ / 2 - 100, yIn + rowHeightIn * 1, 200, 20, new TranslationTextComponent("menu.multiplayer"), (p_213095_1_) -> {
          Screen screen = (Screen)(this.field_230706_i_.gameSettings.field_230152_Z_ ? new MultiplayerScreen(this) : new MultiplayerWarningScreen(this));
          this.field_230706_i_.displayGuiScreen(screen);
-      }, button$itooltip))).field_230693_o_ = flag;
-      (this.func_230480_a_(new Button(this.field_230708_k_ / 2 - 100, yIn + rowHeightIn * 2, 200, 20, new TranslationTextComponent("menu.online"), (p_238661_1_) -> {
-         this.switchToRealms();
       }, button$itooltip))).field_230693_o_ = flag;
    }
 
@@ -241,7 +235,7 @@ public class MainMenuScreen extends Screen {
          }
 
          if (this.field_230706_i_.func_230151_c_()) {
-            s = s + I18n.format("menu.modded");
+            s = s + I18n.format("VextraCraft");
          }
 
          this.func_238476_c_(p_230430_1_, this.field_230712_o_, s, 2, this.field_230709_l_ - 10, 16777215 | l);

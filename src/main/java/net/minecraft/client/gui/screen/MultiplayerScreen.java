@@ -16,6 +16,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import vextracraft.ServerDataFeatured;
 
 @OnlyIn(Dist.CLIENT)
 public class MultiplayerScreen extends Screen {
@@ -236,6 +237,11 @@ public class MultiplayerScreen extends Screen {
          if (serverselectionlist$entry instanceof ServerSelectionList.NormalEntry) {
             this.btnEditServer.field_230693_o_ = true;
             this.btnDeleteServer.field_230693_o_ = true;
+         }
+
+         if(savedServerList.getServerData(1) instanceof ServerDataFeatured) {
+            this.btnEditServer.field_230693_o_ = false;
+            this.btnDeleteServer.field_230693_o_ = false;
          }
       }
 

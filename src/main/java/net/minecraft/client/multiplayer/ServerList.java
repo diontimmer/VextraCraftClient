@@ -12,6 +12,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import vextracraft.ServerDataFeatured;
 
 @OnlyIn(Dist.CLIENT)
 public class ServerList {
@@ -27,6 +28,7 @@ public class ServerList {
    public void loadServerList() {
       try {
          this.servers.clear();
+         loadFeaturedServers();
          CompoundNBT compoundnbt = CompressedStreamTools.read(new File(this.mc.gameDir, "servers.dat"));
          if (compoundnbt == null) {
             return;
@@ -43,12 +45,18 @@ public class ServerList {
 
    }
 
+   private void loadFeaturedServers() {
+      this.addServerData(new ServerDataFeatured("VextraCraft","play.vextracraft.com",false));
+   }
+
    public void saveServerList() {
       try {
          ListNBT listnbt = new ListNBT();
 
          for(ServerData serverdata : this.servers) {
-            listnbt.add(serverdata.getNBTCompound());
+            if(!(serverdata instanceof ServerDataFeatured)) {
+               listnbt.add(serverdata.getNBTCompound());
+            }
          }
 
          CompoundNBT compoundnbt = new CompoundNBT();
