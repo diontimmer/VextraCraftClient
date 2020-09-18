@@ -46,7 +46,7 @@ public class ServerList {
    }
 
    private void loadFeaturedServers() {
-      this.addServerData(new ServerDataFeatured("VextraCraft","play.vextracraft.com",false));
+      this.addServerData(new ServerDataFeatured("VextraCraft","rpgpassthru.vextracraft.com",false));
    }
 
    public void saveServerList() {
